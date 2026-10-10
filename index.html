@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b32">
+  <meta name="description" content="Daftar barang bawaan pribadi yang bisa digunakan offline.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <title>Barang Bawaanku</title>
+</head>
+<body>
+  <header class="hero">
+    <div class="brand"><span class="brand-icon">▣</span><div><h1>Barang Bawaanku</h1><p>Daftar barang pribadi · Offline</p></div></div>
+    <div class="stats">
+      <div><small>Total barang</small><strong id="totalCount">0</strong></div>
+      <div><small>Sudah siap</small><strong id="readyCount">0</strong></div>
+      <div><small>Belum siap</small><strong id="pendingCount">0</strong></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <input id="searchInput" type="search" placeholder="Cari nama, kategori, lokasi..." aria-label="Cari barang">
+      <select id="filterStatus" aria-label="Filter status">
+        <option value="semua">Semua status</option>
+        <option value="siap">Sudah dibawa</option>
+        <option value="belum">Belum dibawa</option>
+      </select>
+    </div>
+
+    <section class="panel">
+      <h2 id="formTitle">Tambah barang</h2>
+      <form id="itemForm">
+        <input type="hidden" id="itemId">
+        <div class="form-grid">
+          <label>Nama barang *<input id="name" required maxlength="100" placeholder="Contoh: Dompet"></label>
+          <label>Kategori
+            <select id="category">
+              <option>Dokumen & pribadi</option><option>Elektronik</option><option>Pakaian</option>
+              <option>Kesehatan</option><option>Perlengkapan mandi</option><option>Makanan & minuman</option>
+              <option>Peralatan</option><option>Lainnya</option>
+            </select>
+          </label>
+          <label>Jumlah *<input id="quantity" required type="number" min="1" max="9999" value="1"></label>
+          <label>Satuan<input id="unit" maxlength="30" placeholder="buah, pasang, kotak..."></label>
+          <label>Lokasi penyimpanan<input id="location" maxlength="100" placeholder="Contoh: Tas utama"></label>
+          <label class="wide">Catatan<textarea id="notes" rows="2" maxlength="1000" placeholder="Ukuran, warna, atau informasi lainnya"></textarea></label>
+        </div>
+        <div class="form-actions">
+          <button class="primary" type="submit" id="saveButton">Simpan barang</button>
+          <button type="button" class="secondary hidden" id="cancelEdit">Batal edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-section">
+      <div class="section-heading"><h2>Daftar barang</h2><span id="resultCount" class="muted">0 barang</span></div>
+      <div id="itemList" class="item-list"></div>
+      <div id="emptyState" class="empty"><div class="empty-icon">▤</div><h3>Belum ada barang</h3><p>Tambahkan barang pertama Anda melalui formulir di atas.</p></div>
+    </section>
+
+    <section class="panel backup-panel">
+      <h2>Cadangan data</h2>
+      <p>Ekspor untuk menyimpan salinan data. Impor file cadangan untuk memulihkan atau menambahkan data ke perangkat ini.</p>
+      <div class="backup-actions">
+        <button id="exportButton" class="secondary" type="button">Ekspor cadangan (.json)</button>
+        <label class="file-button">Impor cadangan<input id="importInput" type="file" accept=".json,application/json"></label>
+      </div>
+      <p class="tip">Data tersimpan di perangkat ini. Untuk memindahkan data ke HP, ekspor file cadangan lalu pindahkan file tersebut dan impor di HP.</p>
+    </section>
+    <footer>Barang Bawaanku · Penyimpanan lokal di perangkat</footer>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+BARANG BAWAANKU — PETUNJUK
+
+Isi folder:
+- index.html : halaman aplikasi
+- style.css  : tampilan
+- app.js     : fungsi aplikasi dan penyimpanan lokal
+- manifest.json, sw.js, icon.svg : dukungan pemasangan dan offline
+
+CARA PALING MUDAH DI KOMPUTER
+1. Ekstrak ZIP ke folder yang mudah ditemukan.
+2. Buka index.html dengan Chrome atau Edge.
+3. Anda bisa langsung menambah dan mengelola barang.
+Catatan: jika dibuka langsung sebagai file, fitur pencatatan umumnya bekerja, tetapi pemasangan PWA dan cache offline service worker memerlukan alamat localhost atau HTTPS.
+
+CARA MENJALANKAN SEBAGAI WEB OFFLINE DI KOMPUTER
+1. Pasang Python 3 dari python.org jika belum ada.
+2. Buka folder barang_bawaanku.
+3. Klik address bar folder, ketik cmd, lalu tekan Enter.
+4. Ketik: python -m http.server 8000
+   Jika tidak berhasil, coba: py -m http.server 8000
+5. Buka Chrome/Edge dan kunjungi http://localhost:8000
+6. Biarkan server berjalan selama aplikasi dibuka melalui localhost.
+7. Buka sekali saat online tidak diperlukan untuk aplikasi lokal ini; file sudah berada di komputer.
+
+CARA DI HP ANDROID
+1. Pindahkan folder/file aplikasi ke HP, atau host folder ini di HTTPS (misalnya GitHub Pages) agar bisa dipasang sebagai PWA.
+2. Untuk cara yang paling stabil: terbitkan folder ini di HTTPS saat ada internet, buka tautan di Chrome Android, tunggu halaman selesai dimuat, lalu pilih menu ⋮ > Tambahkan ke layar utama / Install app.
+3. Setelah terpasang dan cache selesai dibuat, aplikasi dapat dibuka offline.
+4. Data yang dibuat di HP tersimpan di browser/perangkat HP itu sendiri; tidak otomatis sama dengan komputer.
+5. Untuk memindahkan data: di perangkat lama tekan Ekspor cadangan (.json), pindahkan file ke perangkat baru, buka aplikasi di perangkat baru, lalu tekan Impor cadangan.
+
+PENTING
+- Jangan hapus data situs/browser atau data aplikasi jika ingin mempertahankan catatan.
+- Ekspor cadangan secara berkala dan simpan file JSON di tempat aman.
+- Jangan mengandalkan browser mode Incognito/Pribadi untuk data permanen.
+- File HTML dapat dibuka langsung di komputer, tetapi Service Worker/PWA memerlukan localhost atau HTTPS.
